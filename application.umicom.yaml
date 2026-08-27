@@ -1,0 +1,39 @@
+schema: umicom.application.v1
+
+application:
+  id: org.umicom.media-studio
+  name: Umicom Media Studio
+  short_name: Media Studio
+  version: 0.1.0
+  executable: umicom-media-studio-console
+  aliases: [media]
+
+framework:
+  minimum_version: 0.9.0
+  compatible_major: 0
+
+frontends:
+  - console
+
+entry:
+  kind: workbench
+  taskbar_group: media
+  pinned_by_default: false
+  default_layout: edit
+
+capabilities:
+  - umicom.media
+  - umicom.ai.media-generation
+  - umicom.delivery
+  - umicom.application.experience
+  - umicom.application.federation
+
+source_layout:
+  product_root: src
+  composition_root: src
+  console_frontend: src/console
+
+boundaries:
+  owns_reusable_framework_logic: false
+  owns_persistence: false
+  consumes_framework_services: true
