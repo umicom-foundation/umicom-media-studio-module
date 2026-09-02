@@ -22,12 +22,24 @@
 extern "C" {
 #endif
 
+/**
+ * Initialise media studio runtime from caller-provided values so later operations receive
+ * a known state.
+ */
 UmiStatus umi_media_studio_runtime_init(
     UmiApplicationWorkspaceRuntime *out_runtime);
+/**
+ * Provide the media studio runtime health operation used by this module and its client
+ * applications.
+ */
 UmiStatus umi_media_studio_runtime_health(
     UmiApplicationCapabilityProbe probe,
     void *user_data,
     UmiApplicationRuntimeHealth *out_health);
+/**
+ * Provide the media studio runtime experience operation used by this module and its client
+ * applications.
+ */
 const UmiApplicationExperienceDefinition *umi_media_studio_runtime_experience(void);
 
 #ifdef __cplusplus

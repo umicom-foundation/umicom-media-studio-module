@@ -25,11 +25,23 @@ extern "C" {
 
 #define UMI_MEDIA_STUDIO_MODULE_API_VERSION 1U
 
+/**
+ * Provide the media studio application id operation used by this module and its client
+ * applications.
+ */
 const char *umi_media_studio_application_id(void);
 
+/**
+ * Provide the media studio application experience operation used by this module and its
+ * client applications.
+ */
 const UmiApplicationExperienceDefinition *
 umi_media_studio_application_experience(void);
 
+/**
+ * Provide the media studio application status operation used by this module and its client
+ * applications.
+ */
 UmiStatus umi_media_studio_application_status(
     UmiApplicationExperienceStatus *out_status);
 
