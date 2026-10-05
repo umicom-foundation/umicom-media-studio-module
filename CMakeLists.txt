@@ -155,3 +155,12 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/../../framework/cmake/UmicomCreativeWorkspa
 umicom_attach_creative_workspace(
     NAME "media"
     TARGET umicom_media_studio_module)
+
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/docs/LOCAL_ASSETS.html" DESTINATION "${CMAKE_INSTALL_DATADIR}/umicom/applications/media/docs")
+
+# Install the user workflow alongside the other Media guides.
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/docs/SEEDREAM_IMAGES.html" DESTINATION "${CMAKE_INSTALL_DATADIR}/umicom/applications/media/docs")
+
+# Ship the shared creative workflow entry point with the application's help.
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/docs/SONG_AND_VIDEO_WORKFLOWS.html"
+    DESTINATION "${CMAKE_INSTALL_DATADIR}/umicom/applications/media/docs")
