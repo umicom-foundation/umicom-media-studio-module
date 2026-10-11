@@ -164,3 +164,7 @@ install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/docs/SEEDREAM_IMAGES.html" DESTINATIO
 # Ship the shared creative workflow entry point with the application's help.
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/docs/SONG_AND_VIDEO_WORKFLOWS.html"
     DESTINATION "${CMAKE_INSTALL_DATADIR}/umicom/applications/media/docs")
+
+# Keep the caption workflow available in the installed application help.
+install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/docs/CAPTIONS.html"
+    DESTINATION "${CMAKE_INSTALL_DATADIR}/umicom/applications/media/docs")
