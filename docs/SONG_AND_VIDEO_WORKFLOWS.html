@@ -1,1 +1,37 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Song and video workflows in Umicom Media</title><style>body{font:17px/1.65 system-ui,sans-serif;max-width:980px;margin:36px auto;padding:0 24px;color:#213147}h1,h2{color:#194b69}code,pre{background:#edf2f5;padding:4px;white-space:pre-wrap}li{margin:10px 0}a{color:#12679b}table{border-collapse:collapse}td,th{border:1px solid #cad4df;padding:10px;text-align:left}</style></head><body><h1>Song and video workflows in Umicom Media</h1><p>The creative workspace contains two shared Framework pages:</p><ul><li><strong>Song and video plan</strong>: enter timed lyrics and a manual tempo, inspect shot boundaries, save/reopen a plan and export SRT captions.</li><li><strong>PixVerse videos</strong>: use a locally saved API key to review a text-to-video request and explicitly check its job status.</li></ul><p>Follow the <a href="../../../framework/docs/learning/song-and-music-video-plans.html">song planning guide</a> and <a href="../../../framework/docs/learning/pixverse-video-requests.html">PixVerse guide</a> in the Applications checkout for the numbered workflows and recovery steps.</p><p>Save private plans outside the source repository. Song plans contain no audio; PixVerse results are not automatically downloaded, assembled or imported. These pages do not connect to Suno or SONDO. Local writing and timing need no provider account. PixVerse requires API access and credits.</p><p>The portable owners are available to other creative applications. Media composes the shared native pages; it does not keep a duplicate provider client or credential database.</p></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Song and video workflows in Umicom Media</title><style>body{font:17px/1.65 system-ui,sans-serif;max-width:980px;margin:36px auto;padding:0 24px;color:#213147}h1,h2{color:#194b69}code,pre{background:#edf2f5;padding:4px;white-space:pre-wrap}li{margin:10px 0}a{color:#12679b}table{border-collapse:collapse}td,th{border:1px solid #cad4df;padding:10px;text-align:left}</style></head><body><h1>Song and video workflows in Umicom Media</h1><p>The creative workspace contains two shared Framework pages:</p><ul><li><strong>Song and video plan</strong>: enter timed lyrics and a manual tempo, inspect shot boundaries, save/reopen a plan and export SRT captions.</li><li><strong>PixVerse videos</strong>: use a locally saved API key to review a text-to-video request and explicitly check its job status.</li></ul><p>Follow the <a href="../../../framework/docs/learning/song-and-music-video-plans.html">song planning guide</a> and <a href="../../../framework/docs/learning/pixverse-video-requests.html">PixVerse guide</a> in the Applications checkout for the numbered workflows and recovery steps.</p><p>Save private plans outside the source repository. Song plans contain no audio; PixVerse results are not automatically downloaded, assembled or imported. These pages do not connect to Suno or SONDO. Local writing and timing need no provider account. PixVerse requires API access and credits.</p><p>The portable owners are available to other creative applications. Media composes the shared native pages; it does not keep a duplicate provider client or credential database.</p><section><h2>Edit local video and add music</h2>
+<p>The <strong>Video sequence</strong> page adds local clip editing: add, trim, split,
+reorder, undo and redo, then save an editable JSON recipe at a location you choose.
+Preview uses the installed GTK media backend. Silent MP4 rendering uses a trusted FFmpeg
+executable selected by you.</p>
+<p>After checking the silent render, expand <strong>Add soundtrack to a rendered video</strong>.
+Choose the video, an audio file and a fresh MP4 output path. The shared Framework renderer copies
+the video and attaches the selected sound, padding short audio with silence.
+This connects locally exported audio arrangements with video without a provider account.</p>
+<p>See the <a href="../../../framework/docs/learning/video-sequences.html">video-sequence guide</a>
+in the Applications checkout for the numbered workflow and recovery steps.
+The editor supports six clips and ten minutes, with sixteen undo steps. It does not provide
+multi-track video composition, transitions or automatic music generation. Renderer and playback
+support depend on installed tools; the applications do not download codecs or FFmpeg.</p></section>
+<section><h2>Add selectable captions</h2>
+<ol><li>Finish trimming and arranging the video. Render it, and add its soundtrack if needed.</li>
+<li>Use the captions editor to create or edit the words and cue timings, then export a UTF-8 SRT file.
+SRT, also called SubRip, stores a start time, end time and text for each caption.</li>
+<li>In <strong>Video sequence</strong>, open <strong>Add captions to a rendered video</strong>.
+Choose the finished video, the SRT file and a new output filename ending in <code>.mp4</code>.</li>
+<li>Check the trusted FFmpeg executable field and select <strong>Export with captions</strong>.
+Wait for the completion message. The operation uses the same Cancel button as rendering.</li>
+<li>Open the new file in a compatible video player and enable its subtitle track.
+Check the words, timing, full video length and sound before sharing it.</li></ol>
+<p>The export copies the first video stream and, when present, the first audio stream.
+Those streams must already use codecs supported in MP4. It adds one <code>mov_text</code>
+caption track and leaves out earlier subtitle tracks. FFmpeg must supply the SubRip decoder,
+mov_text encoder and MP4 writer.</p>
+<p>Captions remain selectable; they are not permanently drawn into the picture.
+Timing is not adjusted automatically, and a cue past the end of the video can extend
+the container's reported duration. Keep cues within the intended video timeline.
+If a player does not show the captions, check its subtitle controls and format support.</p>
+<p>The recipe, original video and SRT file are unchanged. An existing output filename
+is refused. A failed or cancelled export can leave a partial new file; choose another
+filename when retrying and read the renderer diagnostics. Caption paths are export inputs
+and are not saved inside the sequence recipe.</p></section>
+</body></html>
