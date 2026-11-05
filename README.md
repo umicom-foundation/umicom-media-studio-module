@@ -40,3 +40,12 @@ On **Audio clip**, render a range, choose **Load preview for listening**, then p
 ## Native workflow guide
 
 Read the [native workflow guide](docs/NATIVE_WORKFLOWS.html) for step-by-step use of the implemented controls, expected results and current limits.
+
+## Create media from text
+
+The **Create from text** workspace prepares an editable brief from a book excerpt,
+document or conversation. It passes reviewed text to the existing AI Image,
+AI Video or local/remote model-connection tools while preserving their request
+review and approval steps. Read [Create from text](docs/CREATE_FROM_TEXT.md) for
+the steps, explicit save locations and supported outputs. Music briefs are
+written plans; they do not synthesize audio.
