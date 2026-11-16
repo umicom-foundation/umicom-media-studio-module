@@ -182,3 +182,30 @@ includes a complete independent C23 project and captured-file lessons.
 Qualification registers media.comfy.system.* and can compare the Media console
 with the native CLI when both targets are available. Registration alone does
 not establish that either executable has passed its tests.
+
+
+## Browse captured ComfyUI nodes
+
+The native console also accepts:
+
+~~~powershell
+.\umicom-media-studio-console.exe comfy nodes --help
+.\umicom-media-studio-console.exe comfy nodes C:/NodeReview/connection.umiconnection C:/NodeReview/object-info.json --search image --order class --offset 0 --limit 20
+~~~
+
+Framework owns file admission, copied catalogue selection and JSON pages. Search
+matches class/display/category text with ASCII case folding. Category filters
+respect slash boundaries. A flag absent from the capture stays null; explicitly
+false filters do not include unknown flags. These are node declarations, not a
+list of installed model weights or proof of execution readiness.
+
+Before joining pages, compare connection revision plus connection, response and
+selection digests. Follow next_offset only while remaining_count is nonzero.
+Changing filters or order can change selection identity even with the same input
+file. The command performs no provider request, custom-node import or generation.
+It does not change the existing no-argument composition report or GUI layout.
+
+Shared media.comfy.nodes.* regression cases compare the console with the native
+CLI when both targets are present. Native execution and installed SDK behavior
+remain separately qualified. The Framework ComfyUI course includes an independent
+SDK browser project and the Streamlit course explains captured table presentation.

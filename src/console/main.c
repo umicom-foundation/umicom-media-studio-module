@@ -84,6 +84,7 @@ static int MediaCommand(int argc, char **argv)
               "comfy references --help: paged candidate observations\n"
               "comfy queue --help: captured running/pending observations\n"
               "comfy system --help: captured system/device observations\n"
+              "comfy nodes --help: searchable captured node catalogue\n"
               "comfy --help: offline inspection help\n"
               "models inspect-pull ABSOLUTE_NDJSON: captured model-progress metadata\n", stdout);
         return ferror(stdout) ? 1 : 0;
