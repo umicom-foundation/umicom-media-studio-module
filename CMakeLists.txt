@@ -142,6 +142,8 @@ if(UMICOM_MEDIA_STUDIO_BUILD_CONSOLE)
     target_link_libraries(umicom-media-studio-console PRIVATE Umicom::media_studio_module Umicom::comfy_protocol Umicom::platform)
     # Progress-file inspection stays in Framework and is available from installed SDK exports.
     target_link_libraries(umicom-media-studio-console PRIVATE Umicom::ai)
+    # Source review uses the same installed creative workspace as Media briefs.
+    target_link_libraries(umicom-media-studio-console PRIVATE Umicom::creative_workspace)
     umicom_apply_warnings(umicom-media-studio-console)
     umicom_apply_sanitizers(umicom-media-studio-console)
 

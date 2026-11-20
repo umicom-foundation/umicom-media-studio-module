@@ -18,6 +18,9 @@
 #include "umicom/media_generation/comfy_inspection.h"
 #include "umicom/ai/ollama_pull_file.h"
 #include "umicom/platform/native_arguments.h"
+#if __has_include("umicom/creative_workspace/media_source_excerpt.h")
+#include "umicom/creative_workspace/media_source_excerpt.h"
+#endif
 
 #include "umicom/media_studio/application.h"
 #include "umicom/media_studio/workspace.h"
@@ -78,6 +81,16 @@ static int MediaCommand(int argc, char **argv)
         return UmiOllamaPullFileCommand(argc - 2, argv + 2);
     if (strcmp(argv[1], "comfy") == 0)
         return UmiComfyInspectionCommand(argc - 2, argv + 2);
+    /* Send exact source review and extraction to Framework. Installed
+     * SDKs without the checked reader can still run the other routes. */
+    if (strcmp(argv[1], "source") == 0) {
+#if defined(UMI_MEDIA_SOURCE_EXCERPT_INSPECTION)
+        return UmiMediaSourceExcerptCommand(argc - 2, argv + 2);
+#else
+        fputs("The selected Framework SDK does not supply source excerpt inspection.\n", stderr);
+        return 1;
+#endif
+    }
     if (strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "help") == 0) {
         fputs("Umicom Media Console\nNo arguments: product composition report\n"
               "comfy inspect CONNECTION WORKFLOW OBJECT_INFO [--client-id ID]\n"
@@ -86,6 +99,7 @@ static int MediaCommand(int argc, char **argv)
               "comfy system --help: captured system/device observations\n"
               "comfy nodes --help: searchable captured node catalogue\n"
               "comfy --help: offline inspection help\n"
+              "source --help: inspect and repeat a local UTF-8 selection\n"
               "models inspect-pull ABSOLUTE_NDJSON: captured model-progress metadata\n", stdout);
         return ferror(stdout) ? 1 : 0;
     }

@@ -37,6 +37,12 @@ The **Audio arrangement** page combines supported PCM WAV assets with timed plac
 
 On **Audio clip**, render a range, choose **Load preview for listening**, then press Play. Editing the range retires the player; hiding the page pauses it. Listening volume does not change export gain. See [Listen to audio previews](../../framework/docs/learning/listen-to-audio-previews.html) for supported WAVE files, backend setup and recovery.
 
+After writing a practice video, inspect its duration, dimensions, audio and
+subtitle streams with the independent FFprobe workflow. Then play the clip to
+check the picture, watermark and timing.
+[Review branded video exports](../../framework/docs/learning/branded-video-exports.html)
+shows which metadata to collect and how to interpret an unknown stream time.
+
 ## Native workflow guide
 
 Read the [native workflow guide](docs/NATIVE_WORKFLOWS.html) for step-by-step use of the implemented controls, expected results and current limits.
